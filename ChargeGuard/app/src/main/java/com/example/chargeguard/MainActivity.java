@@ -4,8 +4,10 @@ import android.Manifest;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.os.BatteryManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -60,9 +62,26 @@ public class MainActivity extends AppCompatActivity {
 
         btnSetupPin.setOnClickListener(v -> showPinDialog(false));
 
-        switchAutoArm.setOnCheckedChangeListener((v, isChecked) -> prefs.edit().putBoolean("auto_arm", isChecked).apply());
+        switchAutoArm.setOnCheckedChangeListener((v, isChecked) -> {
+            prefs.edit().putBoolean("auto_arm", isChecked).apply();
+            if (isChecked) checkImmediateArm();
+        });
+
         switchPocketMode.setOnCheckedChangeListener((v, isChecked) -> prefs.edit().putBoolean("pocket_mode", isChecked).apply());
         switchBatteryAlert.setOnCheckedChangeListener((v, isChecked) -> prefs.edit().putBoolean("battery_alert", isChecked).apply());
+    }
+
+    private void checkImmediateArm() {
+        IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+        Intent batteryStatus = registerReceiver(null, ifilter);
+        int status = batteryStatus.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
+        boolean isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING ||
+                             status == BatteryManager.BATTERY_STATUS_FULL;
+
+        if (isCharging && !isServiceRunning) {
+            startMonitoring();
+            Toast.makeText(this, "Smart Arm: Charging detected!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void loadSettings() {
