@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ChargeGuard</string>
+    <string name="status_off">Monitoring: OFF</string>
+    <string name="status_on">Monitoring: ON</string>
+    <string name="turn_on">Turn ON</string>
+    <string name="turn_off">Turn OFF</string>
+    <string name="channel_name">Charge Monitoring</string>
+    <string name="notification_title">ChargeGuard is active</string>
+    <string name="notification_text">Monitoring charging state...</string>
+    <string name="alarm_notification_title">ALARM!</string>
+    <string name="alarm_notification_text">Charger disconnected!</string>
+</resources>
