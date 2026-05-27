@@ -32,6 +32,14 @@
             <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_TYPE_EXPLANATION"
                 android:value="This service monitors the charging state to trigger an alarm when the charger is disconnected." />
         </service>
+
+        <receiver
+            android:name=".PowerConnectionReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.POWER_CONNECTED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

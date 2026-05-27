@@ -1,12 +1,29 @@
 <resources>
-    <string name="app_name">ChargeGuard</string>
-    <string name="status_off">Monitoring: OFF</string>
-    <string name="status_on">Monitoring: ON</string>
-    <string name="turn_on">Turn ON</string>
-    <string name="turn_off">Turn OFF</string>
+    <string name="app_name">ChargeGuard Pro</string>
+    <string name="status_off">System: Inactive</string>
+    <string name="status_on">System: Active</string>
+    <string name="turn_on">Activate Guard</string>
+    <string name="turn_off">Deactivate</string>
+
+    <string name="settings_title">Guard Settings</string>
+    <string name="smart_auto_arm">Smart Auto-Arm</string>
+    <string name="smart_auto_arm_desc">Auto-activate when plugged in</string>
+    <string name="pocket_mode">Pocket Mode</string>
+    <string name="pocket_mode_desc">Alarm if removed from pocket</string>
+    <string name="battery_full_alert">Battery Full Alert</string>
+    <string name="battery_full_alert_desc">Notify at 100% charge</string>
+
+    <string name="pin_setup_title">Security PIN</string>
+    <string name="pin_hint">Enter 4-digit PIN</string>
+    <string name="pin_save">Set PIN</string>
+    <string name="pin_incorrect">Incorrect PIN!</string>
+    <string name="pin_required_to_stop">Enter PIN to stop alarm</string>
+
     <string name="channel_name">Charge Monitoring</string>
-    <string name="notification_title">ChargeGuard is active</string>
-    <string name="notification_text">Monitoring charging state...</string>
+    <string name="notification_title">ChargeGuard Pro is active</string>
+    <string name="notification_text">Protecting your device...</string>
     <string name="alarm_notification_title">ALARM!</string>
     <string name="alarm_notification_text">Charger disconnected!</string>
+    <string name="battery_full_title">Battery Fully Charged!</string>
+    <string name="battery_full_text">Unplug now to save battery life.</string>
 </resources>
